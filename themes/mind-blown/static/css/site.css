@@ -1,0 +1,35 @@
+li {
+    list-style-type: none;
+}
+
+div.remove-padding-buttom-card-list {
+    padding-bottom: 0rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* .jumbotron {
+    background-color: #3445c3;
+}
+
+.tags-color {
+    color: #3445c3;
+} */
+
+/* .has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+} */

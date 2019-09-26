@@ -1,0 +1,35 @@
+theme = "mind-blown"
+
+baseURL = "http://example.org/"
+relativeURLs = true
+
+languageCode = "en-us"
+[params]
+  title = "Misky's home"
+  programming = "My life as a developer"
+  Categories = "CATEGORIES"
+  Archives = "ARCHIVES"
+  Search = "Search"
+
+# Code highlight
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 100
+
+  # [[menu.main]]
+  #   identifier = "tags"
+  #   name = "Tags"
+  #   url = "/tags/"
+  #   weight = 110
+
+  # [[menu.main]]
+  #   identifier = "posts"
+  #   name = "Posts"
+  #   url = "/posts/"
+  #   weight = 120

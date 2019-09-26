@@ -1,0 +1,40 @@
+<div class="card shadow">    
+    <div class="card-body">
+        <h5 class="card-title">{{ .Site.Params.Search }}</h5>        
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search this blog">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+            </div>
+        </div>        
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="card-title">{{ .Site.Params.Categories }}</h5>        
+        <ul class="list-group list-group-flush">
+            {{ range $.Site.Taxonomies.tags.ByCount }}
+            <li>
+                <a class="text-muted" href="/tags{{ .Name | relURL }}"><i class="fa fa-tags"></i></i> {{ .Name | markdownify }} ({{ .Count }})</a>                
+            </li>          
+            {{ end }}
+            
+        </ul>
+    </div>
+</div>    
+
+<br />
+<br />
+
+<div class="card shadow">    
+    <div class="card-body">
+        <h5 class="card-title">{{ .Site.Params.Archives }}</h5>        
+        <ul class="list-group list-group-flush">
+            
+        </ul>
+    </div>
+</div>    
