@@ -29,7 +29,7 @@ git status
 git commit -m "Deploy from CircleCI"
 
 echo "Remote addedd ."
-git remote add origin git@github.com:misky1986/hugo-blog.git
+git remote add origin git@github.com:misky1986/misky-blog.git
 
 # use --quiet to avoid printing token in build logs
 git push --force origin master:gh-pages
