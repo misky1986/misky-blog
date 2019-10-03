@@ -1,6 +1,6 @@
 ---
 title: "Sample post the sixa"
-date: 2019-09-18T23:04:06+02:00
+date: 2016-09-18T23:04:06+02:00
 draft: false
 tags: [ "Docker", "Git", "Microservices", "Architecture" ]
 ---

@@ -15,7 +15,7 @@
 
 <div class="card shadow">
     <div class="card-body">
-        <h5 class="card-title">{{ .Site.Params.Categories }}</h5>        
+        <h5 class="card-title"><a class="text-muted" href="/tags">{{ .Site.Params.Categories }}</a></h5>        
         <ul class="list-group list-group-flush">
             {{ range $.Site.Taxonomies.tags.ByCount }}
             <li>
@@ -26,15 +26,4 @@
         </ul>
     </div>
 </div>    
-
-<br />
-<br />
-
-<div class="card shadow">    
-    <div class="card-body">
-        <h5 class="card-title">{{ .Site.Params.Archives }}</h5>        
-        <ul class="list-group list-group-flush">
-            
-        </ul>
-    </div>
 </div>    

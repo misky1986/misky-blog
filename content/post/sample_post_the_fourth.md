@@ -1,8 +1,8 @@
 ---
-title: "Sample post the fifth"
-date: 2019-09-18T23:03:58+02:00
+title: "Sample post the fourth"
+date: 2018-09-18T23:03:50+02:00
 draft: false
-tags: [ "Docker", "Git", "Microservices", "Architecture" ]
+tags: [ "Docker", "Git", "Microservices", "Architecture", "Maven" ]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas pretium aenean pharetra magna ac placerat. Aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vulputate ut pharetra sit amet aliquam id. Faucibus nisl tincidunt eget nullam non nisi est sit amet. Accumsan lacus vel facilisis volutpat est. Ut placerat orci nulla pellentesque dignissim. Donec ultrices tincidunt arcu non sodales neque sodales ut. Nisi est sit amet facilisis magna etiam tempor orci eu. Sed cras ornare arcu dui. Ante in nibh mauris cursus mattis. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Tincidunt arcu non sodales neque sodales. Sed odio morbi quis commodo odio aenean sed adipiscing diam. Curabitur vitae nunc sed velit dignissim sodales ut. Commodo nulla facilisi nullam vehicula ipsum. Lectus vestibulum mattis ullamcorper velit sed.

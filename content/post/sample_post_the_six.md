@@ -1,6 +1,6 @@
 ---
 title: "Sample post the six"
-date: 2019-09-18T23:04:04+02:00
+date: 2017-09-18T23:04:04+02:00
 draft: false
 tags: [ "Docker", "Git", "Microservices", "Architecture" ]
 ---

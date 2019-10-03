@@ -4,12 +4,18 @@ baseURL = "http://example.org/"
 relativeURLs = true
 
 languageCode = "en-us"
+
 [params]
   title = "Misky's home"
-  programming = "My life as a developer"
+  programming = "My life as developer"
   Categories = "CATEGORIES"
   Archives = "ARCHIVES"
-  Search = "Search"
+  Search = "SEARCH"
+  Name = "Michael Skydt"
+  github = "https://github.com/misky1986"
+  linkedin = "https://www.linkedin.com/in/michael-skydt-41042526/"
+  twitter = "https://twitter.com/mskydt"
+  stackoverflow = "https://stackoverflow.com/users/1046512/mskydt86"
 
 # Code highlight
 pygmentsCodeFences = true

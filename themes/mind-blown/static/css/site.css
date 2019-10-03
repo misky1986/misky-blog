@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+  font-family: 'Raleway', sans-serif !important;
+}
+
 li {  
   list-style-type: none;
 }
@@ -19,7 +25,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 .footer {
@@ -27,7 +33,7 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  height: 120px;
+  line-height: 120px; /* Vertically center the text there */
   background-color: #f5f5f5;
 }
