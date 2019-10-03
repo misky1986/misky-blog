@@ -16,7 +16,7 @@ echo "Show files in public folder after git init command"
 ls -al
 
 git config --global user.email "$GH_EMAIL" > "mskydt86@gmail.com"
-git config --global user.name "$GH_NAME" > "'Michael"
+git config --global user.name "$GH_NAME" > "Michael"
 
 echo "show git status"
 git status
