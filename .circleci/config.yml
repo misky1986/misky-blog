@@ -34,7 +34,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "32:7f:9d:65:03:9d:9b:26:3b:95:61:c0:be:0a:b8:ee"
+            - "ab:4a:b4:77:59:6a:29:18:99:27:f0:18:74:60:72:5f"
       - run:
           name: Deployment started
           command: bash ./scripts/deploy-gh-pages.sh build
