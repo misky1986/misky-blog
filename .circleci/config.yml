@@ -10,20 +10,16 @@ workflows:
             branches:
               only: master
 
-
 version: 2.1
 jobs:
   build:
     docker:
       - image: cibuilds/hugo:0.54    
     steps:
-      - checkout      
+      - checkout
       - run:
-          name: "Run Hugo"          
+          name: "Run Hugo"
           command: HUGO_ENV=production hugo -v -s /root/project/
-      # - run:
-      #     name: "Test Website"
-      #     command: htmlproofer /root/project/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
   deploy:
     docker:
       - image: cibuilds/hugo:0.54
@@ -34,7 +30,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "d1:78:d8:62:40:3c:d8:7a:ad:2f:e6:b3:75:4b:f1:95"            
+            - "d1:78:d8:62:40:3c:d8:7a:ad:2f:e6:b3:75:4b:f1:95"           
       - run:
           name: Deployment started
           command: bash ./scripts/deploy-gh-pages.sh build
