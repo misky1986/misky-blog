@@ -12,16 +12,14 @@
               <a class="text-muted" href="{{ .Permalink }}"><i class="fa fa-calendar"></i> Published {{ .Date.Format "January 2, 2006"  }}</a>                                              
             </p>
             <br />    
-            <p>
-            
-              {{ .Content }}
-            
+            <p>            
+              {{ .Content }}            
           </p>
           </div>                   
         </div>
 
         <div class="row">          
-          <div class="col-xl-12">
+          <div class="col-lg-12">
             <p class="text-right">
               <i class="fa fa-tags"></i>
               {{ range .Params.tags }}
@@ -33,5 +31,5 @@
       </div>                
     </div>
   </div>
+  {{ template "_internal/disqus.html" . }}
 {{ end }}
-

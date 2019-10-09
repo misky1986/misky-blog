@@ -21,6 +21,8 @@ languageCode = "en-us"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
+disqusShortname = "mskydt86"
+
 [menu]
   [[menu.main]]
     identifier = "about"
