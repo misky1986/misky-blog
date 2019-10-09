@@ -21,7 +21,7 @@ languageCode = "en-us"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
-disqusShortname = "https-misky1986-github-io-misky-blog"
+disqusShortname = "mbd-1"
 
 [menu]
   [[menu.main]]
