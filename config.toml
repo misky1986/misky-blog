@@ -16,12 +16,12 @@ languageCode = "en-us"
   linkedin = "https://www.linkedin.com/in/michael-skydt-41042526/"
   twitter = "https://twitter.com/mskydt"
   stackoverflow = "https://stackoverflow.com/users/1046512/mskydt86"
+  disqusShortname = "mbd-1"
 
 # Code highlight
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
-disqusShortname = "mbd-1"
 
 [menu]
   [[menu.main]]
