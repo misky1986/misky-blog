@@ -1,6 +1,6 @@
 theme = "mind-blown"
 
-baseURL = "https://misky1986.github.io/misky-blog/"
+baseURL = "/"
 relativeURLs = true
 
 languageCode = "en-us"
