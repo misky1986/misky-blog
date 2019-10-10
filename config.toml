@@ -1,9 +1,12 @@
 theme = "mind-blown"
 
-baseURL = "http://example.org/"
+baseURL = "https://misky1986.github.io/misky-blog/"
 relativeURLs = true
 
 languageCode = "en-us"
+
+# Disqus shortname
+disqusShortname = "mbd-1"
 
 [params]
   title = "Misky's home"
@@ -16,12 +19,10 @@ languageCode = "en-us"
   linkedin = "https://www.linkedin.com/in/michael-skydt-41042526/"
   twitter = "https://twitter.com/mskydt"
   stackoverflow = "https://stackoverflow.com/users/1046512/mskydt86"
-  disqusShortname = "mbd-1"
 
 # Code highlight
 pygmentsCodeFences = true
 pygmentsUseClasses = true
-
 
 [menu]
   [[menu.main]]
@@ -29,15 +30,3 @@ pygmentsUseClasses = true
     name = "About"
     url = "/about/"
     weight = 100
-
-  # [[menu.main]]
-  #   identifier = "tags"
-  #   name = "Tags"
-  #   url = "/tags/"
-  #   weight = 110
-
-  # [[menu.main]]
-  #   identifier = "posts"
-  #   name = "Posts"
-  #   url = "/posts/"
-  #   weight = 120
