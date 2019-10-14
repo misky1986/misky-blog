@@ -17,6 +17,9 @@ public/
 node_modules/
 themes/mind-blown/data/**/hash.*
 themes/mind-blown/fonts
+themes/mind-blown/src/js/vendors/**
+themes/mind-blown/src/scss/vendors/**
 static/
+
 
 package-lock.json
