@@ -12,3 +12,11 @@
 *.out
 
 public/
+
+# Gulp pipeline
+node_modules/
+themes/mind-blown/data/**/hash.*
+themes/mind-blown/fonts
+static/
+
+package-lock.json

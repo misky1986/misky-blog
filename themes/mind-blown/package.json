@@ -1,0 +1,42 @@
+{
+  "name": "mind-blown",
+  "version": "1.0.0",
+  "description": "A responsive Twitter Bootstrap 4 them for Hugo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misky1986/misky-blog.git"
+  },
+  "keywords": [
+    "Hugo",
+    "Static",
+    "Site",
+    "Generator",
+    "Blog",
+    "Tech"
+  ],
+  "author": "Michael Skydt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misky1986/misky-blog/issues"
+  },
+  "homepage": "https://misky1986.github.io/misky-blog",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-hash": "^4.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "merge-stream": "^2.0.0"
+  }
+}
