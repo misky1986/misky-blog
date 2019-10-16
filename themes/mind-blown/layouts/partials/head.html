@@ -5,31 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "bootstrap.min.css" }}"/>
+    <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "bootstrap-custom.min.css" }}"/>
     
     <script src="/js/{{ index .Site.Data.js.hash "jquery.slim.min.js" }}"></script>
     <script src="/js/{{ index .Site.Data.js.hash "popper.min.js" }}"></script>
     <script src="/js/{{ index .Site.Data.js.hash "bootstrap.min.js" }}"></script>    
 
     <!-- FontAwesome -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "fontawesome.min.css" }}"/>
+    <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "brands.min.css" }}"/>
+    <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "solid.min.css" }}"/>
+    <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "v4-shims.min.css" }}"/>
     <!-- Hugo Site -->
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "syntax.min.css" }}"/>
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "main.min.css" }}" />
 
     {{ range .AlternativeOutputFormats -}}
       {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
-    {{ end -}}
-    <style>
-      .article p, .article ul, .article ol, .article blockquote {
-        max-width: 45em;
-      }
-    
-      .article p:first-child {
-        font-size: 1.25em;
-        font-weight: 300;
-        max-width: 36em; /* 45 / 1.25 */
-      }
-    </style>
+    {{ end -}}    
   </head>

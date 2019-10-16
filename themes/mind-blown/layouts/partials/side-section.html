@@ -15,11 +15,11 @@
 
 <div class="card shadow">
     <div class="card-body">
-        <h5 class="card-title"><a class="text-muted" href="/tags">{{ .Site.Params.Categories }}</a></h5>        
+        <h5 class="card-title"><a class="" href="/tags">{{ .Site.Params.Categories }}</a></h5>        
         <ul class="list-group list-group-flush">
             {{ range $.Site.Taxonomies.tags.ByCount }}
             <li>
-                <a class="text-muted" href="/tags{{ .Name | relURL }}"><i class="fa fa-tags"></i></i> {{ .Name | markdownify }} ({{ .Count }})</a>                
+                <a class="" href="/tags{{ .Name | relURL }}"><i class="fas fa-tags"></i> {{ .Name | markdownify }} ({{ .Count }})</a>                
             </li>          
             {{ end }}
             
