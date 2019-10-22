@@ -1,3 +1,5 @@
+version: 2.1
+
 workflows:
   version: 2.1
   main:
@@ -13,25 +15,23 @@ workflows:
             branches:
               only: master
 
-version: 2.1
+commands:
+  gulp-commands:
+    steps:
+      - run: mkdir  /root/project
+      - run: npm install -g gulp
+      - run: npm install -g gulp
+      - run: sudo npm install
+      - run: gulp compile
+
 jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
     steps:
       - checkout
-      - run
-          name: "Create directory"
-          command: mkdir  /root/project
-      - run
-          name: "Install gulp globally"
-          command: npm install -g gulp
-      - run
-          name: "Install all package.json dependencies"
-          command: sudo npm install
-      - run
-          name: "Build and Compile"
-          command: gulp compile        
+      - gulp-commands
+                
   build:
     docker:
       - image: cibuilds/hugo:0.54
