@@ -2,6 +2,7 @@ workflows:
   version: 2.1
   main:
     jobs:
+      - compileCss
       - build
       - deploy:
           requires:
@@ -12,9 +13,27 @@ workflows:
 
 version: 2.1
 jobs:
+  compileCss:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run
+        name: Create directory 
+        command: mkdir  /root/project
+      - run
+        name: Install gulp globally
+        command: npm install -g gulp
+      - run
+        name: Install all package.json dependencies
+        command: sudo npm install
+      -run
+        name: Build and Compile
+        command: gulp buildAndCompile
+
   build:
     docker:
-      - image: cibuilds/hugo:0.54    
+      - image: cibuilds/hugo:0.54
     steps:
       - checkout
       - run:

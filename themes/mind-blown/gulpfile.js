@@ -107,5 +107,8 @@ gulp.task('clean', function(){
   return del(['./static']);
 });
 
+// Gulp compile and build
+gulp.task('compile', gulp.series(gulp.parallel('vendor:scss', 'vendor:js', 'vendor:fonts'), gulp.parallel('build:css', 'build:js', 'build:webfonts')))
+
 // Still needs to get clean and fonts working
 gulp.task('default', gulp.series(gulp.parallel('vendor:scss', 'vendor:js', 'vendor:fonts'), 'watch'));
