@@ -2,10 +2,10 @@ workflows:
   version: 2.1
   main:
     jobs:
-      - compileCss
+      - compileAssets
       - build
-        - requires:
-          - compileCss
+          requires:
+            - compileAssets
       - deploy:
           requires:
             - build
@@ -15,8 +15,7 @@ workflows:
 
 version: 2.1
 jobs:
-
-  compileCss:
+  compileAssets:
     docker:
       - image: circleci/node:9.6.1
     steps:
@@ -32,8 +31,7 @@ jobs:
         command: sudo npm install
       -run
         name: "Build and Compile"
-        command: gulp compile
-        
+        command: gulp compile        
   build:
     docker:
       - image: cibuilds/hugo:0.54
