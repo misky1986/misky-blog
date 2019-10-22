@@ -18,10 +18,11 @@ workflows:
 commands:
   gulp-commands:
     steps:
+      - run: cd /home/circleci/project
       - run: ls -al
-      - run: sudo mkdir  /root/project
-      - run: ls -al
+      - run: ls -al static
       - run: sudo npm install -g gulp
+      - run: ls -al static
       - run: sudo npm install -g gulp
       - run: sudo sudo npm install
       - run: sudo gulp compile
