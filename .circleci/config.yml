@@ -15,24 +15,25 @@ workflows:
 
 version: 2.1
 jobs:
+
   compileCss:
     docker:
       - image: circleci/node:9.6.1
     steps:
       - checkout
       - run
-        name: Create directory 
+        name: "Create directory"
         command: mkdir  /root/project
       - run
-        name: Install gulp globally
+        name: "Install gulp globally"
         command: npm install -g gulp
       - run
-        name: Install all package.json dependencies
+        name: "Install all package.json dependencies"
         command: sudo npm install
       -run
-        name: Build and Compile
+        name: "Build and Compile"
         command: gulp compile
-
+        
   build:
     docker:
       - image: cibuilds/hugo:0.54
@@ -40,8 +41,7 @@ jobs:
       - checkout
       - run:
           name: "Run Hugo"
-          command: HUGO_ENV=production hugo -v -s /root/project/
-          
+          command: HUGO_ENV=production hugo -v -s /root/project/          
   deploy:
     docker:
       - image: cibuilds/hugo:0.54
