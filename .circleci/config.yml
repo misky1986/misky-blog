@@ -18,11 +18,14 @@ workflows:
 commands:
   gulp-commands:
     steps:
+      - run: ls -al
       - run: sudo mkdir  /root/project
-      - run: npm install -g gulp
-      - run: npm install -g gulp
-      - run: sudo npm install
-      - run: gulp compile
+      - run: ls -al
+      - run: sudo npm install -g gulp
+      - run: sudo npm install -g gulp
+      - run: sudo sudo npm install
+      - run: sudo gulp compile
+      - run: ls -al /root/project
 
 jobs:
   compileAssets:
