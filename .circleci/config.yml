@@ -18,7 +18,7 @@ workflows:
 commands:
   gulp-commands:
     steps:
-      - run: mkdir  /root/project
+      - run: sudo mkdir  /root/project
       - run: npm install -g gulp
       - run: npm install -g gulp
       - run: sudo npm install
@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - gulp-commands
-                
+
   build:
     docker:
       - image: cibuilds/hugo:0.54
