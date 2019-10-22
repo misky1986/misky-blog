@@ -18,7 +18,7 @@ workflows:
 commands:
   gulp-commands:
     steps:
-      - run: cd /home/circleci/project
+      - run: cd /home/circleci/project/themes/mind-blown
       - run: ls -al
       - run: ls -al static
       - run: sudo npm install -g gulp
