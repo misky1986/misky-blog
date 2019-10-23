@@ -37,7 +37,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: /home/circleci/hugo-project
-      - gulp-commands      
+      - gulp-commands
+      - persist_to_workspace:
+          root: .
+          path: themes/mind-blown
 
   build:
     docker:
