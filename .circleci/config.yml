@@ -37,10 +37,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: /home/circleci/hugo-project
-      - gulp-commands
-      - persist_to_workspace:
-          root: .
-          path: .
+      - gulp-commands      
 
   build:
     docker:
