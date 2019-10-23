@@ -26,7 +26,7 @@ commands:
             sudo npm install -g gulp
             sudo sudo npm install
             sudo gulp compile
-            ls -al
+            ls -al static
 
 jobs:
   compileAssets:
@@ -40,7 +40,7 @@ jobs:
       - gulp-commands
       - persist_to_workspace:
           root: .
-          path: static
+          path: .
 
   build:
     docker:
