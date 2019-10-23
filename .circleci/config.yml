@@ -31,13 +31,14 @@ jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: /home/circleci/hugo-project
+    working_directory: /tmp
     steps:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: /home/circleci/hugo-project/themes/mind-blown/static
-          path: themes/mind-blown/static
+          root: /themes/mind-blown
+          path: 
+            - static
 
   build:
     docker:
