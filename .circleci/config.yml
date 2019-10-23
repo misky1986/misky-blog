@@ -33,9 +33,7 @@ jobs:
       - image: circleci/node:9.6.1
     working_directory: /home/circleci/hugo-project
     steps:
-      - checkout
-      - attach_workspace:
-          at: /home/circleci/hugo-project
+      - checkout      
       - gulp-commands       
       - persist_to_workspace:
           root: /home/circleci/hugo-project/themes/mind-blown/static
