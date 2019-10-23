@@ -20,13 +20,12 @@ commands:
     steps:
       - run:
           command: |
-            cd themes/mind-blown
-            ls -al      
-            sudo npm install -g gulp
-            sudo npm install -g gulp
+            pwd
+            cd themes/mind-blown            
+            pwd
+            sudo npm install -g gulp            
             sudo sudo npm install
-            sudo gulp compile
-            ls -al static
+            sudo gulp compile            
 
 jobs:
   compileAssets:
@@ -37,10 +36,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: /home/circleci/hugo-project
-      - gulp-commands
+      - gulp-commands       
       - persist_to_workspace:
-          root: .
-          path: themes/mind-blown
+          root: /home/circleci/hugo-project
+          path: themes/mind-blown/static
 
   build:
     docker:
@@ -55,8 +54,7 @@ jobs:
                     
   deploy:
     docker:
-      - image: cibuilds/hugo:0.54
-    working_directory: /home/circleci/hugo-project
+      - image: cibuilds/hugo:0.54    
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
