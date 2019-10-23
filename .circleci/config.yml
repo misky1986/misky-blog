@@ -18,13 +18,15 @@ workflows:
 commands:
   gulp-commands:    
     steps:
-      - run: cd themes/mind-blown
-      - run: ls -al      
-      - run: sudo npm install -g gulp
-      - run: sudo npm install -g gulp
-      - run: sudo sudo npm install
-      - run: sudo gulp compile
-      - run: ls -al
+      - run:
+          command: |
+            cd themes/mind-blown
+            ls -al      
+            sudo npm install -g gulp
+            sudo npm install -g gulp
+            sudo sudo npm install
+            sudo gulp compile
+            ls -al
 
 jobs:
   compileAssets:
