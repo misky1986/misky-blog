@@ -36,7 +36,7 @@ jobs:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: /themes/mind-blown
+          root: /home/circleci/hugo-project/themes/mind-blown
           path: static
 
   build:
