@@ -31,7 +31,7 @@ jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: /tmp
+    working_directory: /home/circleci/hugo-project
     steps:
       - checkout      
       - gulp-commands       
