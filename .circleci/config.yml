@@ -16,42 +16,50 @@ workflows:
               only: master
 
 commands:
-  gulp-commands:
+  gulp-commands:    
     steps:
-      - run: cd /home/circleci/project/themes/mind-blown
-      - run: ls -al
-      - run: ls -al static
+      - run: cd themes/mind-blown
+      - run: ls -al      
       - run: sudo npm install -g gulp
-      - run: ls -al static
       - run: sudo npm install -g gulp
       - run: sudo sudo npm install
       - run: sudo gulp compile
-      - run: ls -al /root/project
+      - run: ls -al
 
 jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
+    working_directory: /home/circleci/hugo-project
     steps:
       - checkout
+      - attach_workspace:
+          at: /home/circleci/hugo-project
       - gulp-commands
+      - persist_to_workspace:
+          root: .
+          path: static
 
   build:
     docker:
       - image: cibuilds/hugo:0.54
+    working_directory: /home/circleci/hugo-project
     steps:
-      - checkout
+      - attach_workspace:
+          at: /home/circleci/hugo-project
       - run:
           name: "Run Hugo"
-          command: HUGO_ENV=production hugo -v -s /root/project/          
+          command: HUGO_ENV=production hugo -v -s   
+                    
   deploy:
     docker:
       - image: cibuilds/hugo:0.54
+    working_directory: /home/circleci/hugo-project
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
     steps:
-      - checkout
+      - checkout     
       - add_ssh_keys:
           fingerprints:
             - "d1:78:d8:62:40:3c:d8:7a:ad:2f:e6:b3:75:4b:f1:95"           
