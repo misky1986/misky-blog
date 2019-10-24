@@ -36,13 +36,13 @@ jobs:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: /root/hugo-project
-          path: .
+          root: ~/hugo-project/themes/mind-blown
+          path: ~/hugo-project/themes/mind-blown/static
 
   build:
     docker:
       - image: cibuilds/hugo:0.54
-    working_directory: /home/circleci/hugo-project
+    working_directory: ~/hugo-project
     steps:
       - attach_workspace:
           at: ~/hugo-project
