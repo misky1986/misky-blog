@@ -36,7 +36,7 @@ jobs:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: /themes/mind-blown
+          root: .
           path: /themes/mind-blown/static
 
   build:
@@ -45,7 +45,7 @@ jobs:
     working_directory: ~/hugo-project
     steps:
       - attach_workspace:
-          at: ~/hugo-project
+          at: ~c
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v
