@@ -25,20 +25,19 @@ commands:
             pwd
             sudo npm install -g gulp            
             sudo sudo npm install
-            sudo gulp compile
-            mv static ../../tmp           
+            sudo gulp compile            
 
 jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: ~/hugo-project/tmp
+    working_directory: ~/hugo-project
     steps:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: ~/hugo-project/tmp
-          path: ~/hugo-project/themes/mind-blown/static
+          root: /themes/mind-blown
+          path: /themes/mind-blown/static
 
   build:
     docker:
