@@ -19,8 +19,7 @@ commands:
   gulp-commands:    
     steps:
       - run:
-          command: |
-            
+          command: |            
             pwd
             cd themes/mind-blown            
             pwd
@@ -36,8 +35,8 @@ jobs:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: ./
-          path: /themes/mind-blown/static
+          root: ./home/circleci/project/themes/mind-blown/
+          path: static
 
   build:
     docker:
