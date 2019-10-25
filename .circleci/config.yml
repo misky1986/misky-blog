@@ -36,8 +36,8 @@ jobs:
       - checkout      
       - gulp-commands       
       - persist_to_workspace:
-          root: .
-          path: /themes/mind-blown/static
+          root: ./themes/mind-blown
+          path: static
 
   build:
     docker:
