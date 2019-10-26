@@ -37,6 +37,12 @@ jobs:
       - attach_workspace:
           at: ~/app
       - gulp-commands
+      - run:      
+          name: Tester
+          command: pwd
+      - run:
+          name: Tester
+          command: ls -al
       - persist_to_workspace:
           root: /home/circleci/app 
           path: .
