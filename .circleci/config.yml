@@ -40,7 +40,7 @@ jobs:
       - gulp-commands
       - persist_to_workspace:
           root: ./themes/mind-blown/
-          path: ./themes/mind-blown/static
+          path: .
 
   build:
     docker:
