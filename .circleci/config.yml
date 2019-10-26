@@ -39,7 +39,7 @@ jobs:
           at: ~/hugo-blog
       - gulp-commands
       - persist_to_workspace:
-          root: .
+          root: ./themes/mind-blown/
           path: ./themes/mind-blown/static
 
   build:
