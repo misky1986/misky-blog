@@ -32,7 +32,7 @@ jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: ~/hugo-blog/themes/mind-blown
+    working_directory: ~/hugo-blog
     steps:
       - checkout
       - gulp-commands       
