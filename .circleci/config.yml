@@ -21,7 +21,7 @@ commands:
       - run:
           command: |            
             pwd
-            cd themes/mind-blown            
+            cd themes/mind-blown
             pwd
             sudo npm install -g gulp            
             sudo sudo npm install
@@ -30,21 +30,23 @@ commands:
 jobs:
   compileAssets:
     docker:
-      - image: circleci/node:9.6.1    
+      - image: circleci/node:9.6.1
+    working_directory: ~/hugo-blog
     steps:
-      - checkout      
+      - checkout
+      - attach_workspace:
+          at: ~/hugo-blog
       - gulp-commands       
       - persist_to_workspace:
-          root: ./home/circleci/project/themes/mind-blown/
-          path: static
+          root: .
+          path: themes/mind-blown/static
 
   build:
     docker:
-      - image: cibuilds/hugo:0.54
-    working_directory: ~/hugo-project
+      - image: cibuilds/hugo:0.54    
     steps:
       - attach_workspace:
-          at: ~c
+          at: ~/hugo-project
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v
