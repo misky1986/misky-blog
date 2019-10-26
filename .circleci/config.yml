@@ -19,7 +19,9 @@ commands:
   gulp-commands:    
     steps:
       - run:
-          command: |            
+          command: |
+            ls -al
+            pwd 
             sudo npm install -g gulp            
             sudo sudo npm install
             sudo gulp compile            
