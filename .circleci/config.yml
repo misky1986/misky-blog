@@ -32,15 +32,15 @@ jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: ~/hugo-blog
+    working_directory: ~/app
     steps:
       - checkout
       - attach_workspace:
-          at: ~/hugo-blog
+          at: ~/app
       - gulp-commands
       - persist_to_workspace:
-          root: ./themes/mind-blown/
-          path: package.json
+          root: /root/app
+          path: .
 
   build:
     docker:
