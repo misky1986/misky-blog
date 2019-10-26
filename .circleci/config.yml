@@ -45,7 +45,7 @@ jobs:
           command: ls -al
       - run:
           name: Change directory
-          command: themes/mind-blown
+          command: cd themes/mind-blown
       - run:
           name: Files and folders in mind-blown
           command: ls -al          
