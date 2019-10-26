@@ -38,13 +38,19 @@ jobs:
           at: ~/app
       - gulp-commands
       - run:      
-          name: Tester
+          name: Current Directory
           command: pwd
       - run:
-          name: Tester
+          name: Files and folders in Current Directory
           command: ls -al
+      - run:
+          name: Change directory
+          command: themes/mind-blown
+      - run:
+          name: Files and folders in mind-blown
+          command: ls -al          
       - persist_to_workspace:
-          root: /home/circleci/app 
+          root: /home/circleci/app
           path: .
 
   build:
