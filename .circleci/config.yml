@@ -31,8 +31,6 @@ jobs:
     working_directory: ~/hugo-blog/themes/mind-blown
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/hugo-blog/themes/mind-blown
       - gulp-commands       
       - persist_to_workspace:
           root: .
