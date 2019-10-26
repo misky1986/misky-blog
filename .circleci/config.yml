@@ -23,7 +23,8 @@ commands:
             ls -al ~/hugo-blog/themes/mind-blown
             ls -al
             pwd 
-            sudo npm install -g gulp            
+            sudo npm install -g gulp
+            cd themes/mind-blown
             sudo sudo npm install
             sudo gulp compile            
 
@@ -37,7 +38,7 @@ jobs:
       - gulp-commands       
       - persist_to_workspace:
           root: .
-          path: themes/mind-blown/static
+          path: ./static
 
   build:
     docker:
