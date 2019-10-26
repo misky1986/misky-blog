@@ -32,7 +32,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/hugo-blog
+          at: ~/hugo-blog/themes/mind-blown
       - gulp-commands       
       - persist_to_workspace:
           root: .
