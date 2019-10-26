@@ -38,7 +38,7 @@ jobs:
           at: ~/app
       - gulp-commands
       - persist_to_workspace:
-          root: sudo /root/app
+          root: /home/circleci/app 
           path: .
 
   build:
