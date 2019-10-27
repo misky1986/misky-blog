@@ -36,16 +36,11 @@ jobs:
       - checkout      
       - run:      
           name: Install gulp globally
-          command: sudo npm install -g gulp
-      - run:
-          name: Change directory to where gulp.js is located
-          command: cd themes/mind-blown
-      - run:
-          name: Install all npm dependencies
-          command: sudo sudo npm install
-      - run:
-          name: Compile assets
-          command: sudo gulp compile     
+          command: |
+            sudo npm install -g gulp
+            cd themes/mind-blown
+            sudo sudo npm install
+            sudo gulp compile 
       - persist_to_workspace:
           root: .
           path: ./*
