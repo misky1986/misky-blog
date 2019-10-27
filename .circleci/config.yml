@@ -34,8 +34,11 @@ jobs:
     steps:
       - checkout      
       - gulp-compile-assets
+      - run:
+          name: Tester
+          command: ls -al ~/github.com/hugo/misky-blog/themes/mind-blown/static 
       - persist_to_workspace:
-          root: themes/mind-blown/static
+          root: ~/github.com/hugo/misky-blog/themes/mind-blown/static
           path: ~/github.com/hugo/assets/static
 
   build:
