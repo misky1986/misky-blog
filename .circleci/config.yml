@@ -35,8 +35,7 @@ jobs:
       - checkout      
       - gulp-compile-assets
       - persist_to_workspace:
-          root: themes/mind-blown/
-          path: static
+          root: themes/mind-blown/          
 
   build:
     docker:
