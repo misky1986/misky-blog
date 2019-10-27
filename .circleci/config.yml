@@ -16,31 +16,24 @@ workflows:
               only: master
 
 commands:
-  gulp-commands:    
+  gulp-compile-assets:    
     steps:
       - run:
-          command: |
-            ls -al
-            pwd 
+          command: |            
             sudo npm install -g gulp
             cd themes/mind-blown
             sudo sudo npm install
-            sudo gulp compile 
+            sudo gulp compile
+            ls -al static/
 
 jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: ~/go/src/github.com/hugo/misky-blog
+    working_directory: ~/github.com/hugo/misky-blog
     steps:
       - checkout      
-      - run:      
-          name: Install gulp globally
-          command: |
-            sudo npm install -g gulp
-            cd themes/mind-blown
-            sudo sudo npm install
-            sudo gulp compile 
+      - gulp-compile-assets
       - persist_to_workspace:
           root: .
           path: ./*
