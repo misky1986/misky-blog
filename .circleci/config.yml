@@ -45,13 +45,13 @@ jobs:
           command: ls -al
       - run:
           name: Change directory
-          command: cd themes/mind-blown
+          command: cd themes/mind-blown/static && ls -al
       - run:
           name: Files and folders in mind-blown
           command: ls -al          
       - persist_to_workspace:
           root: /home/circleci/app
-          path: .
+          path: /home/circleci/app/public/assets
 
   build:
     docker:
