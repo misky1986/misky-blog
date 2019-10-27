@@ -35,7 +35,8 @@ jobs:
       - checkout      
       - gulp-compile-assets
       - persist_to_workspace:
-          root: themes/mind-blown/          
+          root: themes/mind-blown/static
+          path: ~/github.com/hugo/assets/static
 
   build:
     docker:
