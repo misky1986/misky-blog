@@ -50,8 +50,8 @@ jobs:
           name: Files and folders in mind-blown
           command: ls -al          
       - persist_to_workspace:
-          root: ~/app
-          path: /home/circleci/app/themes/mind-blown/static
+          root: .
+          path: ./*
 
   build:
     docker:
