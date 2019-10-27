@@ -36,7 +36,7 @@ jobs:
       - gulp-compile-assets
       - persist_to_workspace:
           root: .
-          path: ./*
+          path: ./themes/mind-blown/static
 
   build:
     docker:
