@@ -31,7 +31,7 @@ jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: /go/src/github.com/hugo/misky-blog
+    working_directory: /home/go/src/github.com/hugo/misky-blog
     steps:
       - checkout      
       - run:      
