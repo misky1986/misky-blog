@@ -25,30 +25,27 @@ commands:
             sudo npm install -g gulp
             cd themes/mind-blown
             sudo sudo npm install
-            sudo gulp compile            
+            sudo gulp compile 
 
 jobs:
   compileAssets:
     docker:
       - image: circleci/node:9.6.1
-    working_directory: ~/app
+    working_directory: /go/src/github.com/hugo/misky-blog
     steps:
-      - checkout
-      - attach_workspace:
-          at: ~/app
-      - gulp-commands
+      - checkout      
       - run:      
-          name: Current Directory
-          command: pwd
+          name: Install gulp globally
+          command: sudo npm install -g gulp
       - run:
-          name: Files and folders in Current Directory
-          command: ls -al
+          name: Change directory to where gulp.js is located
+          command: cd themes/mind-blown
       - run:
-          name: Change directory
-          command: cd themes/mind-blown/static && ls -al
+          name: Install all npm dependencies
+          command: sudo sudo npm install
       - run:
-          name: Files and folders in mind-blown
-          command: ls -al          
+          name: Compile assets
+          command: sudo gulp compile     
       - persist_to_workspace:
           root: .
           path: ./*
@@ -58,7 +55,7 @@ jobs:
       - image: cibuilds/hugo:0.54
     steps:
       - attach_workspace:
-          at: ~/hugo-project
+          at: .
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v
