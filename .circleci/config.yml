@@ -28,9 +28,9 @@ commands:
 
 jobs:
   compileAssets:
+    working_directory: ~/github.com/hugo/misky-blog
     docker:
       - image: circleci/node:9.6.1
-    working_directory: ~/github.com/hugo/misky-blog
     steps:
       - checkout      
       - gulp-compile-assets
