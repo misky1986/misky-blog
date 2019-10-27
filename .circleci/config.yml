@@ -38,8 +38,8 @@ jobs:
           name: Tester
           command: ls -al ~/github.com/hugo/misky-blog/themes/mind-blown/static 
       - persist_to_workspace:
-          root: ~/github.com/hugo/misky-blog/themes/mind-blown/static
-          path: ~/github.com/hugo/assets/static
+          root: /home/circleci/
+          path: .
 
   build:
     docker:
