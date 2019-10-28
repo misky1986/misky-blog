@@ -4,13 +4,10 @@ workflows:
   version: 2.1
   main:
     jobs:
-      - compileAssets
-      - build:
-          requires:
-            - compileAssets
+      - compileAssetsAndBuild
       - deploy:
           requires:
-            - build
+            - compileAssetsAndBuild            
           filters:
             branches:
               only: master
@@ -27,33 +24,19 @@ commands:
             ls -al static/
 
 jobs:
-  compileAssets:
-    working_directory: ~/github.com/hugo/misky-blog
+  compileAssetsAndBuild:   
     docker:
       - image: circleci/node:9.6.1
     steps:
       - checkout      
       - gulp-compile-assets
       - run:
-          name: Tester
-          command: ls -al ~/github.com/hugo/misky-blog/themes/mind-blown/static 
-      - persist_to_workspace:
-          root: /home/circleci/
-          path: .
-
-  build:
-    docker:
-      - image: cibuilds/hugo:0.54
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v
-                    
+                          
   deploy:
     docker:
-      - image: cibuilds/hugo:0.54
+      - image: cibuilds/hugo:0.59
     environment:
       - SOURCE_BRANCH: master
       - TARGET_BRANCH: gh-pages
