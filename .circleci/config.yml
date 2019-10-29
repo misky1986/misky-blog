@@ -26,7 +26,7 @@ commands:
 jobs:
   compileAssetsAndBuild:   
     docker:
-      - image: circleci/node:9.6.1
+      - image: misky1986/docker-hugo-node
     steps:
       - checkout      
       - gulp-compile-assets
