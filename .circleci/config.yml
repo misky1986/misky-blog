@@ -4,10 +4,7 @@ workflows:
   version: 2.
   main:
     jobs:
-      - compileAssetsAndBuild
-      - deploy:
-          requires:
-            - compileAssetsAndBuild            
+      - compileAssetsBuildAndDeploy:    
           filters:
             branches:
               only: master
@@ -26,7 +23,7 @@ commands:
             ls -al static/
 
 jobs:
-  compileAssetsAndBuild:   
+  compileAssetsBuildAndDeploy:   
     docker:
       - image: misky1986/docker-hugo-node
     environment:
