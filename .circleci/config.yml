@@ -17,10 +17,12 @@ commands:
     steps:
       - run:
           command: |            
-            npm install -g gulp
+            pwd
+            ls -al
+            sudo npm install -g gulp
             cd themes/mind-blown
-            npm install
-            gulp compile
+            sudo npm install
+            sudo gulp compile
             ls -al static/
 
 jobs:
