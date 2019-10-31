@@ -1,15 +1,7 @@
 {{ define "main" }} 
-  {{ $recentposts := 5 }}
-  {{ if .Params.recentposts }}
-    {{ $recentposts = .Params.recentposts }}
-  {{ end }}
+      
+  {{ range where .Site.RegularPages "Type" "post" }}
   
-  
-  <!-- {{ if .Params.Subtitle }}
-    <h3 class="font-weight-light font-italic text-center">{{ .Params.Subtitle | markdownify }}</h2>
-  {{ end }} -->
-
-  {{ range first $recentposts .Site.RegularPages }}      
     <div class="container">      
       <div class="card shadow-lg">                            
         <div class="card-body remove-padding-buttom-card-list">
@@ -51,4 +43,5 @@
        
     <br />
   {{ end }}
+    
 {{ end }}
