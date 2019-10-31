@@ -18,12 +18,6 @@ Open a terminal and run the following commands:
 wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 
-```java,linenums
-    public static void main( String args[] ) {
-        System.out.println("Foobar!"); <1>
-    }
-```
-
 # Install the .NET SDK
 In your terminal, run the following commands:
 sudo apt-get update
