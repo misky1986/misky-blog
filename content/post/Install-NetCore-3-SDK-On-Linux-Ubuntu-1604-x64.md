@@ -5,6 +5,7 @@ draft: false
 tags: [ ".NetCore", "Linux", "WLS" ]
 ---
 
+BLAH BLAH
 On my desktop computer I have install Windows 10 as the OS, but i really like to play around with Linux and especially love their termials.
 Therefore I have install the "Windows Subsystem for Linux (WLS)" on my computer. This open for the Linux world without having to spin a VM up.
 
