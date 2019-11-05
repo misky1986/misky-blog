@@ -21,8 +21,8 @@ disqusShortname = "mbd-1"
   stackoverflow = "https://stackoverflow.com/users/1046512/mskydt86"
 
 # Code highlight
-pygmentsCodeFences = true
-pygmentsUseClasses = true
+pygmentsUseClasses = false
+pygmentsCodefences = true
 
 [menu]
   [[menu.main]]
