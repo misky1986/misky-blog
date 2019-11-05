@@ -5,14 +5,16 @@ draft: false
 tags: [ ".NetCore", "Linux", "WLS" ]
 ---
 
-On my desktop computer I have install Windows 10 as the OS, but i really like to play around with Linux and especially love their termials.
-Therefore I have install the "Windows Subsystem for Linux (WLS)" on my computer. This open for the Linux world without having to spin a VM up.
+I am running Windows 10 Pro on my desktop computer, but i really like to play around with Linux distributions.
+Therefore I have installed "Windows Subsystem for Linux" also known as WLS. This is a compatibility layer for running Linux executables (ELF format) on Windows 10.
 
-I always tend to forget how to keep the Linux environment up to date, with the newest version of the .NetCore SDK.
-So here it goes :)
+I always tend to forget how to keep the Linux environment up to date, with the newest version of my different tools, because I am running mostly on Windows.
+Therefore here is a little guide on how to keep your .NetCore SDK up to date.
+
+![Headache](/post/images/oh-no-i-forgot-something.jpg)
 
 # Register Microsoft key and feed
-Before installing .NET, you'll need to register the Microsoft key, register the product repository, and install required dependencies. This only needs to be done once per machine.
+Before installing .Net Core, you'll need to register the Microsoft key, register the product repository, and install required dependencies. This only needs to be done once per machine.
 
 Open a terminal and run the following commands:
 wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
