@@ -32,6 +32,9 @@ In your terminal, run the following commands:
 {{< /highlight >}}
 
 And viola. Now verify that you have the newest version of .Net Core 3 by typing the following in the terminal:
-dotnet --info
+
+{{< highlight bash >}}
+  dotnet --info
+{{< /highlight >}}
 
 Now you are ready to go program with the new awesome .Net Core 3
