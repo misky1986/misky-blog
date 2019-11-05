@@ -17,15 +17,19 @@ Therefore here is a little guide on how to keep your .NetCore SDK up to date.
 Before installing .Net Core, you'll need to register the Microsoft key, register the product repository, and install required dependencies. This only needs to be done once per machine.
 
 Open a terminal and run the following commands:
-wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
+{{< highlight bash >}}
+  wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  sudo dpkg -i packages-microsoft-prod.deb
+{{< /highlight >}}
 
 # Install the .NET SDK
 In your terminal, run the following commands:
-sudo apt-get update
-sudo apt-get install apt-transport-https
-sudo apt-get update
-sudo apt-get install dotnet-sdk-3.0
+{{< highlight bash >}}
+  sudo apt-get update
+  sudo apt-get install apt-transport-https
+  sudo apt-get update
+  sudo apt-get install dotnet-sdk-3.0
+{{< /highlight >}}
 
 And viola. Now verify that you have the newest version of .Net Core 3 by typing the following in the terminal:
 dotnet --info
