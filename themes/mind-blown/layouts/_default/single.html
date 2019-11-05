@@ -1,4 +1,20 @@
 {{ define "main" }}
-  <h1>{{ .Title | markdownify}}</h1>  
-  {{ .Content }}
+<div class="container">      
+    <div class="card shadow-lg rounded">                            
+      <div class="card-body remove-padding-buttom-card-list">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="text-center">          
+              <a class="text-body text-uppercase" href="{{ .URL | relURL}}">{{ .Title | markdownify}}</a>
+            </h2>
+
+            <br />    
+            <p>            
+              {{ .Content }}            
+          </p>
+          </div>                   
+        </div>       
+      </div>                
+    </div>    
+  </div>
 {{ end }}
