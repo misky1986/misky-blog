@@ -1,7 +1,7 @@
 {{ define "main" }} 
-      
-  {{ range where .Site.RegularPages "Type" "post" }}
   
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}    
+  {{ range $paginator.Pages }}  
     <div class="container">      
       <div class="card shadow-lg">                            
         <div class="card-body remove-padding-buttom-card-list">
@@ -43,5 +43,6 @@
        
     <br />
   {{ end }}
+  {{- partial "pagination.html" . -}}
     
 {{ end }}
