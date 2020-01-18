@@ -9,11 +9,36 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  hugo.version: '0.62.0'
+  hugo.theme.path: 'themes/mind-blown'
 
+steps:
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugo.version)/hugo_$(hugo.version)_Linux-64bit.deb
+  displayName: 'Download HUGO'
+
+- script: 'sudo dpkg -i hugo _ $ (hugo.version) _Linux-64bit.deb'    
+  displayName: 'Install HUGO'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: $(hugo.theme.path)
+
+- task: Gulp@1
+  inputs:
+    gulpFile: 'gulpfile.js'
+    targets: 'compile'
+    workingDirectory: $(hugo.theme.path)
+    enableCodeCoverage: false
+
+- script: 'HUGO_ENV=production hugo -v'    
+  displayName: 'Build HUGO blog'
+
+- script: 'HUGO_ENV=production hugo -v'    
+  displayName: 'Build HUGO blog'
+
+- task: Bash@3
+  inputs:
+    filePath: './scripts/deploy-gh-pages.sh build'    
