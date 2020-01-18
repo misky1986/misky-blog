@@ -1,48 +1,51 @@
 {{ define "main" }} 
-  
-  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}    
-  {{ range $paginator.Pages }}  
-    <div class="container">      
-      <div class="card shadow-lg">                            
-        <div class="card-body remove-padding-buttom-card-list">
-          <div class="row">
-            <div class="col-lg-12">
-              <h1 class="text-center">          
-                <a class="text-body text-uppercase" href="{{ .URL | relURL }}">{{ .Title | markdownify}}</a>
-              </h1>
-
-              <p class="text-muted text-center">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">  
+      {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}    
+      {{ range $paginator.Pages }}
+      <div class="container">      
+        <div class="card shadow-lg">                            
+          <div class="card-body remove-padding-buttom-card-list">
+            <div class="row">
+              <div class="col-lg-12">
+                <h1 class="text-center">          
+                  <a class="text-body text-uppercase" href="{{ .URL | relURL }}">{{ .Title | markdownify}}</a>
+                </h1>                
+                <p class="text-muted text-center">
                   <a class="text-muted" href="{{ .Permalink }}"><i class="fa fa-calendar"></i> Published {{ .Date.Format "January 2, 2006"  }}</a>                                              
-              </p>
-              <br />    
-              
-                <p>{{ .Summary }}</p>
-              
-            </div>
-            <div class="mx-auto">
-              <p><a class="btn btn-primary align-center" href="{{ .URL | relURL }}">Read more...</a></p>                
-            </div>              
+                </p>
+                <br />                          
+                <p>{{ .Summary }}</p>                      
+                <p class="text-muted">Reading time: about {{ .ReadingTime }} minutes</p>
+                <hr>
+                <div class="row">                
+                    <div class="col-xl-6">
+                      <p class="text-left">
+                        <i class="fa fa-tags"></i>
+                        {{ range .Params.tags }}                
+                          <a class="text-muted" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }} /</a>
+                        {{ end }}                      
+                      </p>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="mx-auto">
+                        <p class="text-right"><a class="btn btn-primary align-right" href="{{ .URL | relURL }}">Read more...</a></p>                
+                      </div>                                      
+                    </div>
+                  </div>                        
+                </div>                
+              </div>              
           </div>
-
-          <div class="row">
-            <div class="col-xl-6">
-              <p class="text-muted">Reading time: about {{ .ReadingTime }} minutes</p>
-            </div>
-            <div class="col-xl-6">
-              <p class="text-right">
-                <i class="fa fa-tags"></i>
-                {{ range .Params.tags }}                
-                  <a class="text-muted" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }} /</a>
-                {{ end }}                      
-              </p>
-            </div>
-          </div>                        
         </div>                
-      </div>
+      </div>                
+      <br />
+      {{ end }}  
+      {{- partial "pagination.html" . -}}
     </div>
-       
-    <br />
-  {{ end }}
-  {{- partial "pagination.html" . -}}
-    
+    <div class="col-lg-3">
+      {{- partial "side-section.html" . -}}
+    </div>
+  </div>    
+</div>
 {{ end }}

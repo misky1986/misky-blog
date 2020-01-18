@@ -5,13 +5,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto">
         {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
             <li class="navbar-item {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}">
               <a class="nav-link text-light" href="{{ .URL | relURL }}" title="{{ .Title }}">{{ .Name }}</a>
             </li>        
           {{ end }}
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">          
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn bth-primary" type="submit"><i class="fa fa-search"></i></button>
+        </div>        
+      </form>  
     </div>    
   </div>         
 </nav>
