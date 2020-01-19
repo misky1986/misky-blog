@@ -35,7 +35,7 @@ steps:
   inputs:
     gulpFile: 'gulpfile.js'
     targets: 'compile'
-    workingDirectory: $(hugo.theme.path)
+    gulpjs: $(hugo.theme.path)
     enableCodeCoverage: false
 
 - script: 'HUGO_ENV=production hugo -v'
