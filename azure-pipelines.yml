@@ -39,7 +39,7 @@ steps:
     enableCodeCoverage: false
 
 - script: 'HUGO_ENV=production hugo -v'
-  displaName: 'Build HUGO blog'
+  displayName: 'Build HUGO blog'
 
 - task: Bash@3
   inputs:
