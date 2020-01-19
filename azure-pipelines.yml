@@ -14,6 +14,14 @@ variables:
   hugo.theme.path: 'themes/mind-blown'
 
 steps:
+  - script: pwd
+    displayName: 'Current directory'
+
+steps:
+  - script: ls -al
+    displayName: 'Files in directory'
+
+steps:
 - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugo.version)/hugo_$(hugo.version)_Linux-64bit.deb
   displayName: 'Download HUGO'
 
@@ -33,7 +41,7 @@ steps:
     enableCodeCoverage: false
 
 - script: 'HUGO_ENV=production hugo -v'    
-  displayName: 'Build HUGO blog'
+  displaName: 'Build HUGO blog'y
 
 - script: 'HUGO_ENV=production hugo -v'    
   displayName: 'Build HUGO blog'
