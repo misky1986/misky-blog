@@ -23,7 +23,7 @@ steps:
 - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugo.version)/hugo_$(hugo.version)_Linux-64bit.deb
   displayName: 'Download HUGO'
 
-- script: 'sudo dpkg -i hugo_$(hugo.version)_Linux-64bit.deb'    
+- script: 'sudo dpkg -i hugo_$(hugo.version)_Linux-64bit.deb'
   displayName: 'Install HUGO'
 
 - task: Npm@1
@@ -38,12 +38,9 @@ steps:
     workingDirectory: $(hugo.theme.path)
     enableCodeCoverage: false
 
-- script: 'HUGO_ENV=production hugo -v'    
+- script: 'HUGO_ENV=production hugo -v'
   displaName: 'Build HUGO blog'
-
-- script: 'HUGO_ENV=production hugo -v'    
-  displayName: 'Build HUGO blog'
 
 - task: Bash@3
   inputs:
-    filePath: './scripts/deploy-gh-pages.sh build'    
+    filePath: './scripts/deploy-gh-pages.sh build'
