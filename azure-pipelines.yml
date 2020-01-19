@@ -39,7 +39,7 @@ steps:
     enableCodeCoverage: false
 
 - script: 'HUGO_ENV=production hugo -v'    
-  displaName: 'Build HUGO blog'y
+  displaName: 'Build HUGO blog'
 
 - script: 'HUGO_ENV=production hugo -v'    
   displayName: 'Build HUGO blog'
