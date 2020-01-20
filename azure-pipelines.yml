@@ -53,5 +53,8 @@ stages:
     pool:
       vmImage: $(vmImage)
     steps:
-    - script: $(Pipeline.Workspace)/'HUGO_ENV=production hugo -v'
+    - script: 'hugo'
       displayName: 'Build HUGO blog'
+
+    - publish: public
+      artifact: misky-blog-build
