@@ -15,6 +15,7 @@ variables:
 stages:
 - stage: Download and Install Hugo
   displayName: Download hugo and install it
+  jobs:
   - job: Download and Install Hugo
     pool:
       vmImage: $(vmImage)
@@ -25,11 +26,12 @@ stages:
       displayName: 'Install HUGO'
     - publish: manifests
       artifact: manifests
-      
+
 - stage: Compile static assets
   dependsOn:
     - Download and Install Hugo
   displayName: Download hugo and install it
+  jobs:
   - job: Download and install
     pool:
       vmImage: $(vmImage)
@@ -49,6 +51,7 @@ stages:
   dependsOn:
     - Download and Install Hugo
   displayName: Download hugo and install it
+  jobs:
   - job: Compile static assets
     pool:
       vmImage: $(vmImage)
