@@ -6,41 +6,52 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 variables:
   hugo.version: '0.62.0'
   hugo.theme.path: 'themes/mind-blown'
+  vmImage: 'ubuntu-latest'
+  tag: '$(Build.BuildNumber)'
 
-steps:
-- script: pwd
-  displayName: 'Current directory'
+stages:
+- stage: Download and Install Hugo
+  displayName: Download hugo and install it
+  - job: Download and Install Hugo
+    pool:
+      vmImage: $(vmImage)
+    steps:
+    - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugo.version)/hugo_$(hugo.version)_Linux-64bit.deb
+      displayName: 'Download HUGO'
+    - script: 'sudo dpkg -i hugo_$(hugo.version)_Linux-64bit.deb'
+      displayName: 'Install HUGO'
+    - publish: manifests
+      artifact: manifests
+      
+- stage: Compile static assets
+  dependsOn:
+    - Download and Install Hugo
+  displayName: Download hugo and install it
+  - job: Download and install
+    pool:
+      vmImage: $(vmImage)
+    steps:
+    - task: Npm@1
+      inputs:
+        command: 'install'
+        workingDir: $(hugo.theme.path)
+    - task: Gulp@1
+      inputs:
+        gulpFile: 'gulpfile.js'
+        targets: 'compile'
+        gulpjs: $(hugo.theme.path)
+        enableCodeCoverage: false
 
-- script: ls -al
-  displayName: 'Files in directory'
-
-- script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugo.version)/hugo_$(hugo.version)_Linux-64bit.deb
-  displayName: 'Download HUGO'
-
-- script: 'sudo dpkg -i hugo_$(hugo.version)_Linux-64bit.deb'
-  displayName: 'Install HUGO'
-
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: $(hugo.theme.path)
-
-- task: Gulp@1
-  inputs:
-    gulpFile: 'gulpfile.js'
-    targets: 'compile'
-    gulpjs: $(hugo.theme.path)
-    enableCodeCoverage: false
-
-- script: 'HUGO_ENV=production hugo -v'
-  displayName: 'Build HUGO blog'
-
-- task: Bash@3
-  inputs:
-    filePath: './scripts/deploy-gh-pages.sh build'
+- stage: 
+  dependsOn:
+    - Download and Install Hugo
+  displayName: Download hugo and install it
+  - job: Compile static assets
+    pool:
+      vmImage: $(vmImage)
+    steps:
+    - script: 'HUGO_ENV=production hugo -v'
+      displayName: 'Build HUGO blog'
