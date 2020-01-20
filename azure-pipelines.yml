@@ -7,8 +7,8 @@ trigger:
 - master
 
 variables:
-  hugo.version: '0.62.0'
-  hugo.theme.path: 'themes/mind-blown'
+  hugoVersion: '0.62.0'
+  hugoThemePath: 'themes/mind-blown'
   vmImage: 'ubuntu-latest'
   tag: '$(Build.BuildNumber)'
 
@@ -20,9 +20,9 @@ stages:
     pool:
       vmImage: $(vmImage)
     steps:
-    - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugo.version)/hugo_$(hugo.version)_Linux-64bit.deb
+    - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugoVersion)/hugo_$(hugoVersion)_Linux-64bit.deb
       displayName: 'Download HUGO'
-    - script: 'sudo dpkg -i hugo_$(hugo.version)_Linux-64bit.deb'
+    - script: 'sudo dpkg -i hugo_$(hugoVersion)_Linux-64bit.deb'
       displayName: 'Install HUGO'
 
 - stage: CompileStaticAssets
@@ -35,17 +35,17 @@ stages:
       vmImage: $(vmImage)
     steps:
     - script: ls -al
-    - script: cd  $(Pipeline.Workspace)/$(hugo.theme.path)
+    - script: cd  $(hugoThemePath)
     - script: ls -al
     - task: Npm@1
       inputs:
         command: 'install'
-        workingDir: $(Pipeline.Workspace)/$(hugo.theme.path)
+        workingDir: $(Pipeline.Workspace)/$(hugoThemePath)
     - task: Gulp@1
       inputs:
         gulpFile: 'gulpfile.js'
         targets: 'compile'
-        gulpjs: $(Pipeline.Workspace)/$(hugo.theme.path)
+        gulpjs: $(Pipeline.Workspace)/$(hugoThemePath)
         enableCodeCoverage: false
 
 - stage: Build
