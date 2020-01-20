@@ -52,7 +52,7 @@ stages:
     - CompileStaticAssets
   displayName: Build Hugo blog
   jobs:
-  - job: Compile static assets
+  - job: BuildHugoBlog
     pool:
       vmImage: $(vmImage)
     steps:
