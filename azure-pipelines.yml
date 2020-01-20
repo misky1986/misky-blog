@@ -13,10 +13,10 @@ variables:
   tag: '$(Build.BuildNumber)'
 
 stages:
-- stage: Download and Install Hugo
+- stage: DownloadAndInstallHugo
   displayName: Download hugo and install it
   jobs:
-  - job: Download and Install Hugo
+  - job: DownloadAndInstallHugo
     pool:
       vmImage: $(vmImage)
     steps:
@@ -27,34 +27,34 @@ stages:
     - publish: manifests
       artifact: manifests
 
-- stage: Compile static assets
+- stage: CompileStaticAssets
   dependsOn:
-    - Download and Install Hugo
-  displayName: Download hugo and install it
+    - DownloadAndInstallHugo
+  displayName: Download NPM and install assets withs Gulp
   jobs:
-  - job: Download and install
+  - job: CompileAssetsWithGulp
     pool:
       vmImage: $(vmImage)
     steps:
     - task: Npm@1
       inputs:
         command: 'install'
-        workingDir: $(hugo.theme.path)
+        workingDir: $(Pipeline.Workspace)/$(hugo.theme.path)
     - task: Gulp@1
       inputs:
         gulpFile: 'gulpfile.js'
         targets: 'compile'
-        gulpjs: $(hugo.theme.path)
+        gulpjs: $(Pipeline.Workspace)/$(hugo.theme.path)
         enableCodeCoverage: false
 
 - stage: 
   dependsOn:
-    - Download and Install Hugo
-  displayName: Download hugo and install it
+    - CompileStaticAssets
+  displayName: Build Hugo blog
   jobs:
   - job: Compile static assets
     pool:
       vmImage: $(vmImage)
     steps:
-    - script: 'HUGO_ENV=production hugo -v'
+    - script: $(Pipeline.Workspace)/'HUGO_ENV=production hugo -v'
       displayName: 'Build HUGO blog'
