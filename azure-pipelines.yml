@@ -47,7 +47,7 @@ stages:
         gulpjs: $(Pipeline.Workspace)/$(hugo.theme.path)
         enableCodeCoverage: false
 
-- stage: 
+- stage: Build
   dependsOn:
     - CompileStaticAssets
   displayName: Build Hugo blog
