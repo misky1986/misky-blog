@@ -39,8 +39,8 @@ stages:
     pool:
       vmImage: $(vmImage)
     steps:
-    - scrip: ls -al
-    - scrip: ls -al themes/mind-blown/static/css/ 
+    - script: ls -al
+    - script: ls -al themes/mind-blown/static/css/ 
     - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugoVersion)/hugo_$(hugoVersion)_Linux-64bit.deb
       displayName: 'Download HUGO'
     - script: 'sudo dpkg -i hugo_$(hugoVersion)_Linux-64bit.deb'
