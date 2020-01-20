@@ -33,19 +33,16 @@ stages:
   - job: CompileAssetsWithGulp
     pool:
       vmImage: $(vmImage)
-    steps:
-    - script: ls -al
-    - script: cd  $(hugoThemePath)
-    - script: ls -al
+    steps:    
     - task: Npm@1
       inputs:
         command: 'install'
-        workingDir: $(Pipeline.Workspace)/$(hugoThemePath)
+        workingDir: $(hugoThemePath)
     - task: Gulp@1
       inputs:
         gulpFile: 'gulpfile.js'
         targets: 'compile'
-        gulpjs: $(Pipeline.Workspace)/$(hugoThemePath)
+        gulpjs: /$(hugoThemePath)
         enableCodeCoverage: false
 
 - stage: Build
