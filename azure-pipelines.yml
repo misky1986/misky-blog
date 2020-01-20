@@ -51,5 +51,5 @@ stages:
         cd $(Pipeline.Workspace)/blogWithAssets
         hugo
       displayName: 'Build HUGO blog'
-    - publish: $(Pipeline.Workspace)/public
+    - publish: $(Pipeline.Workspace)/blogWithAssets/public
       artifact: misky-blog-build
