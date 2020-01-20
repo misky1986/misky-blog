@@ -24,8 +24,6 @@ stages:
       displayName: 'Download HUGO'
     - script: 'sudo dpkg -i hugo_$(hugo.version)_Linux-64bit.deb'
       displayName: 'Install HUGO'
-    - publish: manifests
-      artifact: manifests
 
 - stage: CompileStaticAssets
   dependsOn:
