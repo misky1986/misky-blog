@@ -48,8 +48,8 @@ stages:
     - script: 'sudo dpkg -i hugo_$(hugoVersion)_Linux-64bit.deb'
       displayName: 'Install HUGO'    
     - script: |
-      cd $(Pipeline.Workspace)/blogWithAssets
-      hugo
+        cd $(Pipeline.Workspace)/blogWithAssets
+        hugo
       displayName: 'Build HUGO blog'
     - publish: public
       artifact: misky-blog-build
