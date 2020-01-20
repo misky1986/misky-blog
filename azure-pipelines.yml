@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-  hugoVersion: '0.62.0'
+  hugoVersion: '0.62.2'
   hugoThemePath: 'themes/mind-blown'
   vmImage: 'ubuntu-latest'
   tag: '$(Build.BuildNumber)'
