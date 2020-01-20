@@ -42,7 +42,7 @@ stages:
       inputs:
         gulpFile: 'gulpfile.js'
         targets: 'compile'
-        gulpjs: /$(hugoThemePath)
+        gulpjs: $(hugoThemePath)
         enableCodeCoverage: false
 
 - stage: Build
