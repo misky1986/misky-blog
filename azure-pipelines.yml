@@ -34,6 +34,9 @@ stages:
     pool:
       vmImage: $(vmImage)
     steps:
+    -script: ls -al
+    -script: cd  $(Pipeline.Workspace)/$(hugo.theme.path)
+    -script: ls -al
     - task: Npm@1
       inputs:
         command: 'install'
