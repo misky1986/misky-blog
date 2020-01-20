@@ -13,22 +13,8 @@ variables:
   tag: '$(Build.BuildNumber)'
 
 stages:
-- stage: DownloadAndInstallHugo
-  displayName: Download hugo and install it
-  jobs:
-  - job: DownloadAndInstallHugo
-    pool:
-      vmImage: $(vmImage)
-    steps:
-    - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugoVersion)/hugo_$(hugoVersion)_Linux-64bit.deb
-      displayName: 'Download HUGO'
-    - script: 'sudo dpkg -i hugo_$(hugoVersion)_Linux-64bit.deb'
-      displayName: 'Install HUGO'
-
 - stage: CompileStaticAssets
-  dependsOn:
-    - DownloadAndInstallHugo
-  displayName: Download NPM and install assets withs Gulp
+  displayName: Install NPM packages and compile assets with Gulp
   jobs:
   - job: CompileAssetsWithGulp
     pool:
@@ -44,7 +30,7 @@ stages:
         targets: 'compile'
         enableCodeCoverage: false
 
-- stage: Build
+- stage: BuildBlog
   dependsOn:
     - CompileStaticAssets
   displayName: Build Hugo blog
@@ -53,6 +39,10 @@ stages:
     pool:
       vmImage: $(vmImage)
     steps:
+    - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugoVersion)/hugo_$(hugoVersion)_Linux-64bit.deb
+      displayName: 'Download HUGO'
+    - script: 'sudo dpkg -i hugo_$(hugoVersion)_Linux-64bit.deb'
+      displayName: 'Install HUGO'
     - script: 'hugo'
       displayName: 'Build HUGO blog'
 
