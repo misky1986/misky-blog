@@ -44,8 +44,8 @@ stages:
     - download: current
       artifact: blogWithAssets    
     - script: ls -al
-    - script: ls -al blogWithAssets
-    - script: ls -al blogWithAssets/themes/mind-blown/static/css/ 
+    - script: ls -al $(Pipeline.Workspace)/blogWithAssets
+    - script: ls -al $(Pipeline.Workspace)/blogWithAssets/themes/mind-blown/static/css/ 
     - script: wget -c https://github.com/gohugoio/hugo/releases/download/v$(hugoVersion)/hugo_$(hugoVersion)_Linux-64bit.deb
       displayName: 'Download HUGO'
     - script: 'sudo dpkg -i hugo_$(hugoVersion)_Linux-64bit.deb'
