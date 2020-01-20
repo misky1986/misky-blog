@@ -40,7 +40,7 @@ stages:
         workingDir: $(hugoThemePath)
     - task: Gulp@1
       inputs:
-        gulpFile: $(hugoThemePath)/'gulpfile.js'
+        gulpFile: $(hugoThemePath)/gulpfile.js
         targets: 'compile'
         enableCodeCoverage: false
 
