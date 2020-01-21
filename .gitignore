@@ -23,3 +23,5 @@ static/
 
 
 package-lock.json
+
+.vs
