@@ -72,7 +72,9 @@ stages:
     - download: current
       artifact: misky-blog-build
     - script: |
+        cd $(Pipeline.Workspace)/misky-blog-build
         set -e # stop at first failing command
+        git init
         git config --global user.email $(gh_email) > /dev/null 2>&1
         git config --global user.name $(gh_user) > /dev/null 2>&1
         git add .
