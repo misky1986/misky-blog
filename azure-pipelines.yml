@@ -71,6 +71,9 @@ stages:
     - checkout: none
     - download: current
       artifact: misky-blog-build
+    - task: DownloadSecureFile@1
+      inputs:
+        secureFile: 'azure-deploy-key'
     - script: |
         cd $(Pipeline.Workspace)/misky-blog-build
         set -e # stop at first failing command
