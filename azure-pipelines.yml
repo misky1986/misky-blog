@@ -7,6 +7,10 @@ trigger:
 - master
 
 variables:
+  gh_user: misky1986
+  gh_repo: misky-blog  
+  gh_email: mskydt86@gmail.com
+  gh_auth_header: $(echo -n "${gh_user}:$(github_pat)" | base64);
   hugoVersion: '0.62.2'
   hugoThemePath: 'themes/mind-blown'
   vmImage: 'ubuntu-latest'
@@ -54,3 +58,24 @@ stages:
       displayName: 'Build HUGO blog'
     - publish: $(Pipeline.Workspace)/blogWithAssets/public
       artifact: misky-blog-build
+
+- stage: DeployToGitHubPages
+  dependsOn:
+    - BuildBlog
+  displayName: Deploy blog to Github pages
+  jobs:
+  - job: DeployBlogToGithubPages
+    pool:
+      vmImage: $(vmImage)
+    steps:
+    - checkout: none
+    - download: current
+      artifact: misky-blog-build
+    - script: |
+        set -e # stop at first failing command
+        git config --global user.email $(gh_email) > /dev/null 2>&1
+        git config --global user.name $(gh_user) > /dev/null 2>&1
+        git add .
+        git commit -m "[Azure Pipeline] Deploy to ghpages branch from Deploy stage"
+        git remote add origin git@github.com:$(gh_user)/$(gh_repo).git
+        git push --force origin master:gh-pages
