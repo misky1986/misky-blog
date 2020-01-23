@@ -56,9 +56,11 @@ stages:
         cd $(Pipeline.Workspace)/blogWithAssets
         hugo
       displayName: 'Build HUGO blog'
-    - publish: |
-        $(Pipeline.Workspace)/blogWithAssets/public
-        $(Pipeline.Workspace)/blogWithAssets/scripts
+    - task: Bash@3
+      workingDirectory: $(Pipeline.Workspace)/blogWithAssets/scripts
+      inputs:
+        script: mv deploy-gh-pages.sh $(Pipeline.Workspace)/blogWithAssets
+    - publish: $(Pipeline.Workspace)/blogWithAssets/public
       artifact: misky-blog-build    
 
 - stage: DeployToGitHubPages
