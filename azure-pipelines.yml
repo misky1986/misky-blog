@@ -35,6 +35,8 @@ stages:
         enableCodeCoverage: false
     - publish: ./
       artifact: blogWithAssets
+    - publish: $(Pipeline.Workspace)/scripts
+      artifact: misky-blog-deploy
 
 - stage: BuildBlog
   dependsOn:
@@ -57,7 +59,7 @@ stages:
         hugo
       displayName: 'Build HUGO blog'
     - publish: $(Pipeline.Workspace)/blogWithAssets/public
-      artifact: misky-blog-build
+      artifact: misky-blog-build    
 
 - stage: DeployToGitHubPages
   dependsOn:
@@ -80,13 +82,6 @@ stages:
         sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCkd8hXPXdHDHVWfUGevB2DOG1Wusp/3pyIZRkt/UjWYAwFua2ENcu6cYXbxo3i/t1iguoZZvMpJNGTbsFjLw6ikOTTr8THcqi6EfXF+drGTnmWh/sJEoArgUVv7SWHpBI6fFZcnI8dg0oEOJySc5ZhH1KDOLUB05JZ+KQImWxauQhMMB6GLPy9/DJpQMMsE3YFg4lEZnSdwonfcdhat+quaEteHz6yzM9g/R3ih4QqKnSvMnMbxbtcV1fRLaW9JrLJH/xvCyJKqTVpUwzBZTFeS0sFT3xF0RJilcmivQfk3qm/xllOWamkKOQZ4Qxv7xLR5vIno/toJfJBIrbiEqKpaOKOEx30b3nZs8lKW7M3zfBZxIhKuVAOHahy4qsp3YcfoyHp8TStY8z+pcSGHhkv2MI6zUzDyPhSutkJ7x7qSXnHrnkukMgQCuA7xVQ2JqU7avvMM8mriMWWOkre8PjCuanypS0ZV5wfgpRcYUtvfNiAXR165yVocLzwC6WAMwRCBBlupEOMFqBlEFh8rBPFWdjYpBlPV8NJ6BYKgUznA5DOf3KhcXo3jU0ju93cKCK5JDA1KDUDWoMydYKGEOXEO1gkNxT1lSw7Gi6JgN4iUxMTyfTKKAbxBF1y91C8BAuQS4cD5WQZmYvGzVj0kjVWxoBRlxUsv8FGXn/M2ZeiJw== mskydt86@gmail.com'
         sshKeySecureFile: 'azure-pipeline-deploy'
     - script: |        
-        cd $(Pipeline.Workspace)/misky-blog-build        
-        set -e # stop at first failing command
-        git init
-        git config --global user.email $(gh_email) > /dev/null 2>&1
-        git config --global user.name $(gh_user) > /dev/null 2>&1
-        git add .
-        git commit -m "[Azure Pipeline] Deploy to ghpages branch from Deploy stage"
-        git remote add origin git@github.com:$(gh_user)/$(gh_repo).git
-        echo "[Azure Pipeline] Remote origin added"
-        git push --force origin master:gh-pages
+        cd $(Pipeline.Workspace)/misky-blog-build
+        mv $(Pipeline.Workspace)/misky-blog-deploy .
+        deploy-gh-pages.sh
