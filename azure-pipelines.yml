@@ -91,6 +91,6 @@ stages:
         echo 'Deploy'
         cd $(Pipeline.Workspace)/misky-blog-deploy
         ls -al
-        mv deploy-gh-pages.sh $(Pipeline.Workspace)/misky-blog-build
+        move deploy-gh-pages.sh $(Pipeline.Workspace)/misky-blog-build
         cd $(Pipeline.Workspace)/misky-blog-build
         deploy-gh-pages.sh
