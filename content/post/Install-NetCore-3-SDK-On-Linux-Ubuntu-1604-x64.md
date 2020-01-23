@@ -5,7 +5,7 @@ draft: false
 tags: [ ".NetCore", "Linux", "WLS" ]
 ---
 
-I am running Windows 10 Pro on my desktop computer, but i really like to play around with Linux distributions.
+On my desktop at home I am running Windows 10 Pro, but i really like to play around with Linux distributions, because I think it is important to know these OS's as a developer.
 Therefore I have installed "Windows Subsystem for Linux" also known as WLS. This is a compatibility layer for running Linux executables (ELF format) on Windows 10.
 
 I always tend to forget how to keep the Linux environment up to date, with the newest version of my different tools, because I am running mostly on Windows.
