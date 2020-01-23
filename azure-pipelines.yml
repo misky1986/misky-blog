@@ -73,7 +73,12 @@ stages:
       artifact: misky-blog-build
     - task: DownloadSecureFile@1
       inputs:
-        secureFile: 'azure-deploy-key'
+        secureFile: 'azure-pipeline-deploy'
+    - task: InstallSSHKey@0
+      inputs:
+        knownHostsEntry: 'azure-pipeline-deploy'
+        sshPublicKey: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCkd8hXPXdHDHVWfUGevB2DOG1Wusp/3pyIZRkt/UjWYAwFua2ENcu6cYXbxo3i/t1iguoZZvMpJNGTbsFjLw6ikOTTr8THcqi6EfXF+drGTnmWh/sJEoArgUVv7SWHpBI6fFZcnI8dg0oEOJySc5ZhH1KDOLUB05JZ+KQImWxauQhMMB6GLPy9/DJpQMMsE3YFg4lEZnSdwonfcdhat+quaEteHz6yzM9g/R3ih4QqKnSvMnMbxbtcV1fRLaW9JrLJH/xvCyJKqTVpUwzBZTFeS0sFT3xF0RJilcmivQfk3qm/xllOWamkKOQZ4Qxv7xLR5vIno/toJfJBIrbiEqKpaOKOEx30b3nZs8lKW7M3zfBZxIhKuVAOHahy4qsp3YcfoyHp8TStY8z+pcSGHhkv2MI6zUzDyPhSutkJ7x7qSXnHrnkukMgQCuA7xVQ2JqU7avvMM8mriMWWOkre8PjCuanypS0ZV5wfgpRcYUtvfNiAXR165yVocLzwC6WAMwRCBBlupEOMFqBlEFh8rBPFWdjYpBlPV8NJ6BYKgUznA5DOf3KhcXo3jU0ju93cKCK5JDA1KDUDWoMydYKGEOXEO1gkNxT1lSw7Gi6JgN4iUxMTyfTKKAbxBF1y91C8BAuQS4cD5WQZmYvGzVj0kjVWxoBRlxUsv8FGXn/M2ZeiJw== mskydt86@gmail.com'
+        sshKeySecureFile: 'azure-pipeline-deploy'
     - script: |
         ls -al
         cd $(Pipeline.Workspace)/misky-blog-build
