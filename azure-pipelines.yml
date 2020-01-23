@@ -56,12 +56,8 @@ stages:
         cd $(Pipeline.Workspace)/blogWithAssets
         hugo
       displayName: 'Build HUGO blog'
-    - task: Bash@3
-      workingDirectory: $(Pipeline.Workspace)/blogWithAssets/scripts
-      inputs:
-        script: mv deploy-gh-pages.sh $(Pipeline.Workspace)/blogWithAssets
     - publish: $(Pipeline.Workspace)/blogWithAssets/public
-      artifact: misky-blog-build    
+      artifact: misky-blog-build 
 
 - stage: DeployToGitHubPages
   dependsOn:
@@ -74,9 +70,7 @@ stages:
     steps:
     - checkout: none
     - download: current
-      artifact: misky-blog-build
-    - download: current
-      artifact: misky-blog-deploy      
+      artifact: misky-blog-build    
     - task: DownloadSecureFile@1
       inputs:
         secureFile: 'azure-pipeline-deploy'
@@ -87,4 +81,12 @@ stages:
         sshKeySecureFile: 'azure-pipeline-deploy'
     - script: |        
         cd $(Pipeline.Workspace)/misky-blog-build
-        deploy-gh-pages.sh
+        set -e # stop at first failing command
+        git init
+        git config --global user.email $(gh_email) > /dev/null 2>&1
+        git config --global user.name $(gh_user) > /dev/null 2>&1
+        git add .
+        git commit -m "[Azure Pipeline] Deploy to ghpages branch from Deploy stage"
+        git remote add origin git@github.com:$(gh_user)/$(gh_repo).git
+        echo "[Azure Pipeline] Remote origin added"
+        git push --force origin master:gh-pages
