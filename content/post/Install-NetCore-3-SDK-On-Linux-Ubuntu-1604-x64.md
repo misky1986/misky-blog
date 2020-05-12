@@ -1,7 +1,7 @@
 ---
 title: "Install NetCore 3 SDK on Linux Ubuntu 16.04 X64"
 date: 2019-10-28T21:58:09+01:00
-draft: true
+draft: false
 tags: [ ".NetCore", "Linux", "WLS" ]
 ---
 
