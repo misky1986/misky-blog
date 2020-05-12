@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "brands.min.css" }}"/>
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "solid.min.css" }}"/>
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "v4-shims.min.css" }}"/>
+    
     <!-- Hugo Site -->
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "syntax.min.css" }}"/>
     <link rel="stylesheet" href="/css/{{ index .Site.Data.css.hash "main.min.css" }}" />
-
+    
     {{ range .AlternativeOutputFormats -}}
       {{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
     {{ end -}}    
