@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>http://example.org/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Oct 2019 21:58:09 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>.NetCore</title>
+      <link>http://example.org/tags/.netcore/</link>
+      <pubDate>Mon, 28 Oct 2019 21:58:09 +0100</pubDate>
+      
+      <guid>http://example.org/tags/.netcore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://example.org/tags/linux/</link>
+      <pubDate>Mon, 28 Oct 2019 21:58:09 +0100</pubDate>
+      
+      <guid>http://example.org/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WLS</title>
+      <link>http://example.org/tags/wls/</link>
+      <pubDate>Mon, 28 Oct 2019 21:58:09 +0100</pubDate>
+      
+      <guid>http://example.org/tags/wls/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
